@@ -25,3 +25,23 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Linux helper
+
+# For more memory
+```
+=============================================
+export NODE_OPTIONS=--max_old_space_size=8192
+nvm use 16.14.0
+=============================================
+git init
+git symbolic-ref HEAD refs/heads/main
+=============================================
+```
+
+# Run build
+
+```
+ng build --prod --aot
+ng build --configuration production --aot
+```
