@@ -37,10 +37,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   newForms(): void {
     this.myGroup = this.fb.group({
-      firstName: ['Lenin', Validators.required],
-      lastName: ['Aparicio', Validators.required],
-      username: ['ohkmalganis', Validators.required],
-      email: ['ohkmalganis@gmail.com', Validators.compose([Validators.required, Validators.email])],
+      firstName: ['Jhon', Validators.required],
+      lastName: ['Doe', Validators.required],
+      username: ['jhondoe', Validators.required],
+      email: ['jhondoe@jhondoe.com', Validators.compose([Validators.required, Validators.email])],
       address: ['My first address', Validators.required],
       country: ['Bolivia', Validators.required],
       state: ['La Paz', Validators.required],

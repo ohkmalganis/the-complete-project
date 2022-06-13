@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './reducers/counter.reducer';
+import { HighlightDirective } from "./home-page/directives/highlight.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutsComponent
+    LayoutsComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
