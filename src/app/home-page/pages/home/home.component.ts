@@ -1,24 +1,24 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Observable, Subscription} from 'rxjs';
 import {ProfileInterface} from "../../models/profile.interface";
 import {HomePageService} from "../../services/home-page.service";
 import { Store } from '@ngrx/store';
+import {MessageInterface} from "../../models/message.interface";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   public myGroup!: FormGroup;
   public data!: ProfileInterface;
 
   public childEvent: number = 0;
 
-  public message: string = '';
-  subscription: Subscription;
+  message$: Observable<MessageInterface>;
 
   count$: Observable<number>;
 
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.newForms();
-    this.subscription = this.dataShare.currentMessage.subscribe(message => this.message = message)
+    this.message$ = this.dataShare.sharingObservable;
   }
 
   newForms(): void {
@@ -70,10 +70,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (event) {
       this.childEvent++;
     }
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
 }

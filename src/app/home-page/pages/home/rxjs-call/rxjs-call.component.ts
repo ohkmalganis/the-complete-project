@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import {HomePageService} from "../../../services/home-page.service";
+import {MessageInterface} from "../../../models/message.interface";
 
 @Component({
   selector: 'app-rxjs-call',
@@ -12,10 +13,12 @@ export class RxjsCallComponent implements OnInit, OnDestroy {
   public message:string='';
   subscription: Subscription;
 
+  private data$: Observable<MessageInterface>;
+
   constructor(
-    private dataShare: HomePageService
+    private homePageService: HomePageService
   ) {
-    this.subscription = this.dataShare.currentMessage.subscribe(message => this.message = message)
+    this.data$ = this.homePageService.sharingObservable;
   }
 
   ngOnInit(): void {
@@ -26,7 +29,9 @@ export class RxjsCallComponent implements OnInit, OnDestroy {
   }
 
   changeTheMessage():void {
-    this.dataShare.changeMessage('This is a new message, shared with services and BehaviorSubject!');
+    this.homePageService.sharingObservableData = {
+      message: 'Hemos actualizado la informacion'
+    };
   }
 
 }
