@@ -9,7 +9,7 @@ import {ProfileInterface} from "../../../models/profile.interface";
 export class HomeChildComponent implements OnChanges {
 
   @Input() receivedData:ProfileInterface;
-  @Output() response:EventEmitter<string> = new EventEmitter<string>();
+  @Output() response:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public data:ProfileInterface[]=[];
   firstrun:boolean=true;
@@ -28,6 +28,7 @@ export class HomeChildComponent implements OnChanges {
 
   removeData(line:number):void {
     this.data.splice(line, 1);
+    this.response.emit(true);
   }
 
 }

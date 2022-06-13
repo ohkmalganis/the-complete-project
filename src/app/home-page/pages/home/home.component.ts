@@ -1,23 +1,34 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Subscription } from 'rxjs';
 import {ProfileInterface} from "../../models/profile.interface";
+import {HomePageService} from "../../services/home-page.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   public myGroup!: FormGroup;
   public data!: ProfileInterface;
 
-  constructor(private fb: FormBuilder) {
+  public childEvent:number=0;
+
+  public message:string='';
+  subscription: Subscription;
+
+  constructor(
+    private fb: FormBuilder,
+    private dataShare: HomePageService
+    ) {
 
   }
 
   ngOnInit(): void {
     this.newForms();
+    this.subscription = this.dataShare.currentMessage.subscribe(message => this.message = message)
   }
 
   newForms(): void {
@@ -27,8 +38,8 @@ export class HomeComponent implements OnInit {
       username: ['ohkmalganis', Validators.required],
       email: ['ohkmalganis@gmail.com', Validators.compose([Validators.required, Validators.email])],
       address: ['My first address', Validators.required],
-      country: ['1', Validators.required],
-      state: ['LA', Validators.required],
+      country: ['Bolivia', Validators.required],
+      state: ['La Paz', Validators.required],
       zip: ['591', Validators.required],
     });
 
@@ -47,6 +58,16 @@ export class HomeComponent implements OnInit {
       state: this.myGroup.get('state')?.value,
       zip: this.myGroup.get('zip')?.value,
     };
+  }
+
+  childResponse(event:boolean):void {
+    if(event){
+      this.childEvent++;
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

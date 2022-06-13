@@ -5,7 +5,7 @@
         <div class="card-body">
           <h3 class="card-title text-decoration-underline">Home page</h3>
           <div class="row mb-3">
-            <div class="col-md-4 ">
+            <div class="col-md-3">
               <span class="text-center text-decoration-bold text-uppercase">For home component</span>
               <form class="form-horizontal" [formGroup]="myGroup" (ngSubmit)="handleSubmit()">
                 <div class="row g-3">
@@ -56,8 +56,8 @@
                     <label for="country" class="form-label">Country</label>
                     <select class="form-select" formControlName="country" id="country" required>
                       <option value="">Choose...</option>
-                      <option value="1">United States</option>
-                      <option value="2">Bolivia</option>
+                      <option value="United States">United States</option>
+                      <option value="Bolivia">Bolivia</option>
                     </select>
                     <div class="invalid-feedback">
                       Please select a valid country.
@@ -68,9 +68,9 @@
                     <label for="state" class="form-label">State</label>
                     <select class="form-select" formControlName="state" id="state" required>
                       <option value="">Choose...</option>
-                      <option value="CA">California</option>
-                      <option value="LA">La Paz</option>
-                      <option value="SC">Santa Cruz</option>
+                      <option value="California">California</option>
+                      <option value="La Paz">La Paz</option>
+                      <option value="Santa Cruz">Santa Cruz</option>
                     </select>
                     <div class="invalid-feedback">
                       Please provide a valid state.
@@ -96,16 +96,32 @@
                 </div>
 
               </form>
+
+              <div class="row mb-3"></div>
+
+              <p *ngIf="childEvent>0">The child element has removed one data sended before <strong>{{childEvent}}</strong> times.</p>
+
+              <div class="row mb-3"></div>
+
+              {{message}}
+
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
               <span class="text-center text-decoration-bold text-uppercase">For Child component</span>
               <app-home-child
                 [receivedData]="data"
+                (response)="childResponse($event)"
               ></app-home-child>
             </div>
             <div class="col-md-2">
-              <span class="text-center text-decoration-bold text-uppercase">For Ngrx</span>
+              <span class="text-center text-decoration-bold text-uppercase">For Rxjs and Ngrx</span>
               <div class="row mb-3"></div>
+              <p>Rxjs</p>
+              <div class="row mb-3"></div>
+              <app-rxjs-call
+              ></app-rxjs-call>
+              <div class="row mb-3"></div>
+              <div class="dropdown-divider"></div>
               <app-ngrx-call></app-ngrx-call>
             </div>
           </div>

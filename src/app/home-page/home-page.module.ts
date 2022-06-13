@@ -8,12 +8,14 @@ import { HomeChildComponent } from './pages/home/home-child/home-child.component
 
 import { HomePageService } from "./services/home-page.service";
 import { NgrxCallComponent } from './home/ngrx-call/ngrx-call.component';
+import { RxjsCallComponent } from './home/rxjs-call/rxjs-call.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeChildComponent,
-    NgrxCallComponent
+    NgrxCallComponent,
+    RxjsCallComponent
   ],
   imports: [
     CommonModule,
