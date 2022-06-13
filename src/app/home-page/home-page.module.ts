@@ -12,6 +12,7 @@ import { NgrxCallComponent } from './pages/home/ngrx-call/ngrx-call.component';
 import { RxjsCallComponent } from './pages/home/rxjs-call/rxjs-call.component';
 import { HighlightDirective } from "./directives/highlight.directive";
 import { ShortenPipe } from "./pipes/shorten.pipe";
+import { HomePromisesComponent } from './pages/home/home-promises/home-promises.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShortenPipe } from "./pipes/shorten.pipe";
     NgrxCallComponent,
     RxjsCallComponent,
     HighlightDirective,
-    ShortenPipe
+    ShortenPipe,
+    HomePromisesComponent
   ],
   imports: [
     CommonModule,
