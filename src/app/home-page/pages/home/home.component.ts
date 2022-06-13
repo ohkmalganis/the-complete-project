@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {Observable, Subscription} from 'rxjs';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable} from 'rxjs';
 import {ProfileInterface} from "../../models/profile.interface";
 import {HomePageService} from "../../services/home-page.service";
-import { Store } from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import {MessageInterface} from "../../models/message.interface";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
 
@@ -27,9 +28,12 @@ export class HomeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dataShare: HomePageService,
+    private cdr: ChangeDetectorRef,
     private store: Store<{ count: number }>
   ) {
     this.count$ = store.select('count');
+    // Anula la deteccion de cambios
+    this.cdr.detach(); // Los cambios no se toman en cuenta
   }
 
   ngOnInit(): void {

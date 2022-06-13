@@ -103,7 +103,9 @@
 
               <div class="row mb-3"></div>
 
-              {{ (message$ | async)?.message }}
+              <div *ngIf="message$ | async as result">
+                {{result.message}}
+              </div>
 
               <div class="row mb-3"></div>
 
