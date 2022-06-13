@@ -28,12 +28,12 @@ export class HomeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dataShare: HomePageService,
-    private cdr: ChangeDetectorRef,
+    // private cdr: ChangeDetectorRef,
     private store: Store<{ count: number }>
   ) {
     this.count$ = store.select('count');
     // Anula la deteccion de cambios
-    this.cdr.detach(); // Los cambios no se toman en cuenta
+    // this.cdr.detach(); // Los cambios no se toman en cuenta
   }
 
   ngOnInit(): void {

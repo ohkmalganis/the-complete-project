@@ -7,9 +7,10 @@ import { MessageInterface } from "../models/message.interface";
 })
 export class HomePageService {
 
-  private messageSource:BehaviorSubject<MessageInterface> = new BehaviorSubject<MessageInterface>({message: 'Initial message - BehaviorSubject'});
+  private messageSource: BehaviorSubject<MessageInterface> = new BehaviorSubject<MessageInterface>({message: 'Initial message - BehaviorSubject'});
 
-  constructor() { }
+  constructor() {
+  }
 
   get sharingObservable() {
     return this.messageSource.asObservable();
