@@ -1,12 +1,13 @@
 import {Directive, ElementRef, HostListener, OnInit, Renderer2} from "@angular/core";
 
 @Directive({
-  selector: '[highlight]'
+  selector: '[highlightSelector]'
 })
 
-export class HighlightDirective implements OnInit{
+export class HighlightDirective implements OnInit {
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) {
+    console.log('loading...');
   }
 
   ngOnInit(): void {
@@ -14,7 +15,7 @@ export class HighlightDirective implements OnInit{
     this.elRef.nativeElement.style.color = 'white';
   }
 
-  @HostListener('mouseenter') mouseover(eventData: Event) {
+  @HostListener('mouseover') mouseover(eventData: Event) {
     this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue');
     this.renderer.setStyle(this.elRef.nativeElement, 'color', 'white');
   }

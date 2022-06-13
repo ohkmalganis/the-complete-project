@@ -10,13 +10,15 @@ import { HomeChildComponent } from './pages/home/home-child/home-child.component
 import { HomePageService } from "./services/home-page.service";
 import { NgrxCallComponent } from './pages/home/ngrx-call/ngrx-call.component';
 import { RxjsCallComponent } from './pages/home/rxjs-call/rxjs-call.component';
+import { HighlightDirective } from "./directives/highlight.directive";
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeChildComponent,
     NgrxCallComponent,
-    RxjsCallComponent
+    RxjsCallComponent,
+    HighlightDirective
   ],
   imports: [
     CommonModule,

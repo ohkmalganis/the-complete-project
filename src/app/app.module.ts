@@ -8,13 +8,13 @@ import { AppComponent } from './app.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './reducers/counter.reducer';
-import { HighlightDirective } from "./home-page/directives/highlight.directive";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { JwtInterceptor } from "./home-page/interceptors/jwt.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutsComponent,
-    HighlightDirective
+    LayoutsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,11 @@ import { HighlightDirective } from "./home-page/directives/highlight.directive";
     AppRoutingModule,
     StoreModule.forRoot({count: counterReducer})
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
