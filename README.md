@@ -37,6 +37,8 @@ nvm use 16.14.0
 git init
 git symbolic-ref HEAD refs/heads/main
 =============================================
+git config credential.helper store
+=============================================
 ```
 
 # Run build
