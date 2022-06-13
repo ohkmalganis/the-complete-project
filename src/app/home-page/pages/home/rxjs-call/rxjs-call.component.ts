@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
-import {HomePageService} from "../../services/home-page.service";
+import {HomePageService} from "../../../services/home-page.service";
 
 @Component({
   selector: 'app-rxjs-call',

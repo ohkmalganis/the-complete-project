@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { LayoutsComponent } from './layouts/layouts.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './reducers/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { LayoutsComponent } from './layouts/layouts.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({count: counterReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,21 @@
+<h5 class="card-title">NGRX</h5>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<div class="row mb-3"></div>
+
+<button class="btn btn-success btn-sm" (click)="increment()">
+  <i class="fa fa-plus"></i> Increment
+</button>
+
+<div class="row mb-1"></div>
+
+<button class="btn btn-warning btn-sm" (click)="decrement()">
+  <i class="fa fa-minus"></i> Decrement
+</button>
+
+<div class="row mb-1"></div>
+
+<button class="btn btn-dark btn-sm" (click)="reset()">
+  <i class="fa fa-home"></i> Reset Counter
+</button>

@@ -7,8 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeChildComponent } from './pages/home/home-child/home-child.component';
 
 import { HomePageService } from "./services/home-page.service";
-import { NgrxCallComponent } from './home/ngrx-call/ngrx-call.component';
-import { RxjsCallComponent } from './home/rxjs-call/rxjs-call.component';
+import { NgrxCallComponent } from './pages/home/ngrx-call/ngrx-call.component';
+import { RxjsCallComponent } from './pages/home/rxjs-call/rxjs-call.component';
 
 @NgModule({
   declarations: [

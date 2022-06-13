@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { Subscription } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {ProfileInterface} from "../../models/profile.interface";
 import {HomePageService} from "../../services/home-page.service";
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +15,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   public myGroup!: FormGroup;
   public data!: ProfileInterface;
 
-  public childEvent:number=0;
+  public childEvent: number = 0;
 
-  public message:string='';
+  public message: string = '';
   subscription: Subscription;
+
+  count$: Observable<number>;
 
   constructor(
     private fb: FormBuilder,
-    private dataShare: HomePageService
-    ) {
-
+    private dataShare: HomePageService,
+    private store: Store<{ count: number }>
+  ) {
+    this.count$ = store.select('count');
   }
 
   ngOnInit(): void {
@@ -45,7 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   }
 
-  handleSubmit():void {
+  handleSubmit(): void {
     console.log('submited!', this.myGroup.getRawValue());
     this.data = {
       id: null,
@@ -60,8 +64,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     };
   }
 
-  childResponse(event:boolean):void {
-    if(event){
+  childResponse(event: boolean): void {
+    if (event) {
       this.childEvent++;
     }
   }
