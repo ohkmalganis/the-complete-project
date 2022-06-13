@@ -52,11 +52,6 @@
                     </div>
                   </div>
 
-                  <div class="col-12">
-                    <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" formControlName="address2" id="address2" placeholder="Apartment or suite">
-                  </div>
-
                   <div class="col-md-5">
                     <label for="country" class="form-label">Country</label>
                     <select class="form-select" formControlName="country" id="country" required>
@@ -104,7 +99,9 @@
             </div>
             <div class="col-md-6">
               <span class="text-center text-decoration-bold text-uppercase">For Child component</span>
-              <app-home-child></app-home-child>
+              <app-home-child
+                [receivedData]="data"
+              ></app-home-child>
             </div>
             <div class="col-md-2">
               <span class="text-center text-decoration-bold text-uppercase">For Ngrx</span>

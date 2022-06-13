@@ -1,1 +1,43 @@
-<p>home-child works!</p>
+<div class="row mt-4">
+  <div class="col-md-12">
+    <div *ngIf="!receivedData">
+      No data sended yet...
+    </div>
+    <div class="table-responsive" *ngIf="receivedData">
+      <table class="table table-sm table-bordered table-striped table-hover">
+        <thead class="text-center">
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>
+              <i class="fa fa-list"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of data; let i=index">
+            <td>{{d?.firstName}}</td>
+            <td>{{d?.lastName}}</td>
+            <td>{{d?.username}}</td>
+            <td>{{d?.email}}</td>
+            <td>{{d?.address}}</td>
+            <td>{{d?.country}}</td>
+            <td>{{d?.state}}</td>
+            <td>{{d?.zip}}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="removeData(i)">
+                <i class="fa fa-remove text-white"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

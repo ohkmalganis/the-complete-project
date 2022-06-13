@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
       username: ['ohkmalganis', Validators.required],
       email: ['ohkmalganis@gmail.com', Validators.compose([Validators.required, Validators.email])],
       address: ['My first address', Validators.required],
-      address2: [''],
       country: ['1', Validators.required],
       state: ['LA', Validators.required],
       zip: ['591', Validators.required],
@@ -44,12 +43,10 @@ export class HomeComponent implements OnInit {
       username: this.myGroup.get('username')?.value,
       email: this.myGroup.get('email')?.value,
       address: this.myGroup.get('address')?.value,
-      address2: this.myGroup.get('address2')?.value,
       country: this.myGroup.get('country')?.value,
       state: this.myGroup.get('state')?.value,
       zip: this.myGroup.get('zip')?.value,
     };
-    console.log(this.data);
   }
 
 }

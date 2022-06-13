@@ -5,7 +5,6 @@ export interface ProfileInterface {
   username: string;
   email: string;
   address: string;
-  address2: string | null;
   country: number;
   state: string;
   zip: number;
