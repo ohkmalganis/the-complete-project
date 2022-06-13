@@ -7,20 +7,20 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './reducers/counter.reducer';
+import { counterReducer } from './store/reducers/counter.reducer';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./home-page/interceptors/jwt.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutsComponent
+    LayoutsComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({count: counterReducer})
+    StoreModule.forRoot({count: counterReducer}),
   ],
   providers: [
     {

@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   count$: Observable<number>;
 
+  text:string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
   constructor(
     private fb: FormBuilder,
     private dataShare: HomePageService,

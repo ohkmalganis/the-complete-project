@@ -11,6 +11,7 @@ import { HomePageService } from "./services/home-page.service";
 import { NgrxCallComponent } from './pages/home/ngrx-call/ngrx-call.component';
 import { RxjsCallComponent } from './pages/home/rxjs-call/rxjs-call.component';
 import { HighlightDirective } from "./directives/highlight.directive";
+import { ShortenPipe } from "./pipes/shorten.pipe";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HighlightDirective } from "./directives/highlight.directive";
     HomeChildComponent,
     NgrxCallComponent,
     RxjsCallComponent,
-    HighlightDirective
+    HighlightDirective,
+    ShortenPipe
   ],
   imports: [
     CommonModule,
