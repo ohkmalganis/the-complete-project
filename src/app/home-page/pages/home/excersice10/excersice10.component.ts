@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, Observable } from "rxjs";
 import { GetDataService } from "../../../services/get-data.service";
-import {PostsInterface} from "../../../models/posts.interface";
+import { PostsInterface } from "../../../models/posts.interface";
 
 @Component({
   selector: 'app-excersice10',
@@ -18,7 +18,8 @@ export class Excersice10Component implements OnInit, OnDestroy {
     private getData: GetDataService
   ) {
     this.subscription = this.getData.getalldata().subscribe((datos) => {
-      this.datos = datos;
+      // this.datos = datos;
+      console.log(datos);
     });
   }
 
