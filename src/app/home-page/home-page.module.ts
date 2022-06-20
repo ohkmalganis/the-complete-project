@@ -15,6 +15,7 @@ import { HomePromisesComponent } from './pages/home/home-promises/home-promises.
 import { Excersice10Component } from './pages/home/excersice10/excersice10.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeChildComponent } from './pages/home/home-child/home-child.component';
+import { StoreModule } from "@ngrx/store";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomeChildComponent } from './pages/home/home-child/home-child.component
     CommonModule,
     HomePageRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule
   ],
   providers: [
     HomePageService,

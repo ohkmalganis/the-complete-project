@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/reducers/counter.reducer';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./home-page/interceptors/jwt.interceptor";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { JwtInterceptor } from "./home-page/interceptors/jwt.interceptor";
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({count: counterReducer}),
   ],
   providers: [
